@@ -1,4 +1,5 @@
 #include <stdarg.h>
+#include "main.h"
 /**
  * _printf - A function like original _printf function
  * @format: is a string that contains format specifiers
@@ -9,9 +10,10 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
+	int i;
 
 	va_start(args, format);
-	for (int i = 0; format[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		char CHARACTER;
 		char *STRING;
