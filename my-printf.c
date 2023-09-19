@@ -1,4 +1,3 @@
-#include "main.h"
 /**
  * _printf - A function like original _printf function
  * @format: is a string that contains format specifiers
