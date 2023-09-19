@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	for (int i = 0; format[i] != '\0'; i++)
+	for (int i = 0; format && format[i] != '\0'; i++)
 	{
 		char CHARACTER;
 		char *STRING;
