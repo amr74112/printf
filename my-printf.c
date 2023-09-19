@@ -1,3 +1,7 @@
+#include <stddef.h>
+#include <stdarg.h>
+#include "main.h"
+
 /**
  * _printf - A function like original _printf function
  * @format: is a string that contains format specifiers
@@ -38,7 +42,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format == '\0')
+			if (format[i] == '\0')
 				break;
 			PUTCHAR(format[i]);
 		}
