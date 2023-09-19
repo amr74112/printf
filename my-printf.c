@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format == NULL)
+			if (format == '\0')
 				break;
 			PUTCHAR(format[i]);
 		}
