@@ -24,6 +24,8 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] == 'c')
 		{
 			CHARACTER = (char)va_arg(args, int);
+			if (STRING == NULL)
+				return (-1);
 			PUTCHAR(CHARACTER);
 			i++;
 		}
@@ -44,5 +46,5 @@ int _printf(const char *format, ...)
 		else
 			 PUTCHAR(format[i]);
 	}
-	return (0);
+	return (i);
 }
