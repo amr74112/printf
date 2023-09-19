@@ -1,4 +1,3 @@
-#include <stdarg.h>
 #include "main.h"
 /**
  * _printf - A function like original _printf function
@@ -14,9 +13,8 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	for (i = 0; format && format[i] != '\0'; i++)
-	{
-		char CHARACTER;
-		char *STRING;
+		{
+		char CHARACTER, *STRING;
 
 		if (format[i] == '%' && format[i + 1] == 'c')
 		{
@@ -41,6 +39,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			if (format == NULL)
+				break;
 			PUTCHAR(format[i]);
 		}
 
