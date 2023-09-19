@@ -46,5 +46,5 @@ int _printf(const char *format, ...)
 		else
 			 PUTCHAR(format[i]);
 	}
-	return (i);
+	return (0);
 }
