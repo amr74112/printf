@@ -42,7 +42,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			PUTCHAR(format[i]);
-			i++;
 		}
 
 	}
