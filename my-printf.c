@@ -30,6 +30,9 @@ int _printf(const char *format, ...)
 		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			STRING = va_arg(args, char*);
+			if (STRING == NULL)
+				return (-1);
+
 			PUTS(STRING);
 			i++;
 		}
