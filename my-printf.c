@@ -13,6 +13,8 @@ int _printf(const char *format, ...)
 	int i;
 
 	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
@@ -39,6 +41,5 @@ int _printf(const char *format, ...)
 		else
 			 PUTCHAR(format[i]);
 	}
-		va_end(args);
-		return (0);
+	return (0);
 }
