@@ -1,7 +1,3 @@
-#include <stddef.h>
-#include <stdarg.h>
-#include "main.h"
-
 /**
  * _printf - A function like original _printf function
  * @format: is a string that contains format specifiers
@@ -18,7 +14,8 @@ int _printf(const char *format, ...)
 		return (-1);
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		char CHARACTER, *STRING;
+		char CHARACTER;
+		char *STRING;
 
 		if (format[i] == '%' && format[i + 1] == 'c')
 		{
@@ -46,5 +43,4 @@ int _printf(const char *format, ...)
 
 	}
 	return (Count);
->>>>>>> e839b2a3df67b84f35331edf27fc1dcce26915a9
 }

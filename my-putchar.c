@@ -3,9 +3,11 @@
 /**
  * PUTCHAR - A function that prints a character
  * @x: is a character to be printed
+ * Return: return value of len
  */
 
-void PUTCHAR(char x)
+int PUTCHAR(char x)
 {
 	write(1, &x, 1);
+	return (1);
 }
