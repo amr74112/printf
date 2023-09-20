@@ -1,60 +1,50 @@
-#include "main.h"
-#include <stdarg.h>
 #include <stddef.h>
+#include <stdarg.h>
+#include "main.h"
 
 /**
- * _printf - A function like the original printf function
- * @format: a string that contains format specifiers
- * Return: The return value
+ * _printf - A function like original _printf function
+ * @format: is a string that contains format specifiers
+ * Return: The return value (Count)
  */
 int _printf(const char *format, ...)
 {
-    va_list args;
-    int i, count = 0;
+	va_list args;
+	int i;
+	int Count;
 
-    va_start(args, format);
-    if (format == NULL)
-        return (-1);
+	va_start(args, format);
+	if (format == NULL)
+		return (-1);
+	for (i = 0; format && format[i] != '\0'; i++)
+	{
+		char CHARACTER, *STRING;
 
-    for (i = 0; format[i] != '\0'; i++)
-    {
-        char CHARACTER;
-        char *STRING;
+		if (format[i] == '%' && format[i + 1] == 'c')
+		{
+			CHARACTER = (char)va_arg(args, int);
+			Count += PUTCHAR(CHARACTER);
+			i++;
+		}
+		else if (format[i] == '%' && format[i + 1] == 's')
+		{
+			STRING = va_arg(args, char*);
+			Count += PUTS(STRING);
+			i++;
+		}
+		else if (format[i] == '%' && format[i + 1] == '%')
+		{
+			Count += PUTCHAR(format[i]);
+			i++;
+		}
+		else
+		{
+			if (format[i] == '\0')
+				break;
+			Count += PUTCHAR(format[i]);
+		}
 
-        if (format[i] == '%')
-        {
-            i++;
-            switch (format[i])
-            {
-                case 'c':
-                    CHARACTER = (char)va_arg(args, int);
-                    PUTCHAR(CHARACTER);
-                    count++;
-                    break;
-                case 's':
-                    STRING = va_arg(args, char*);
-                    if (STRING == NULL)
-                        return (-1);
-                    PUTS(STRING);
-                    count++;
-                    break;
-                case '%':
-                    PUTCHAR('%');
-                    count++;
-                    break;
-                default:
-                    PUTCHAR('%');
-                    PUTCHAR(format[i]);
-                    count += 2;
-            }
-        }
-        else
-        {
-            PUTCHAR(format[i]);
-            count++;
-        }
-    }
-
-    va_end(args);
-    return (count);
+	}
+	return (Count);
+>>>>>>> e839b2a3df67b84f35331edf27fc1dcce26915a9
 }
