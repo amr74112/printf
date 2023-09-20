@@ -5,44 +5,45 @@
 /**
  * _printf - A function like original _printf function
  * @format: is a string that contains format specifiers
- * Return: The return value
+ * Return: The return value (Count)
  */
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int i;
+	int Count;
 
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
 	for (i = 0; format && format[i] != '\0'; i++)
-		{
+	{
 		char CHARACTER, *STRING;
 
 		if (format[i] == '%' && format[i + 1] == 'c')
 		{
 			CHARACTER = (char)va_arg(args, int);
-			PUTCHAR(CHARACTER);
+			Count += PUTCHAR(CHARACTER);
 			i++;
 		}
 		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			STRING = va_arg(args, char*);
-			PUTS(STRING);
+			Count += PUTS(STRING);
 			i++;
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
-			PUTCHAR(format[i]);
+			Count += PUTCHAR(format[i]);
 			i++;
 		}
 		else
 		{
 			if (format[i] == '\0')
 				break;
-			PUTCHAR(format[i]);
+			Count += PUTCHAR(format[i]);
 		}
 
 	}
-	return (0);
+	return (Count);
 }
