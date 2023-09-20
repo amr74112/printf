@@ -22,22 +22,18 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] == 'c')
 		{
 			CHARACTER = (char)va_arg(args, int);
-			if (STRING == NULL)
-				return (-1);
 			PUTCHAR(CHARACTER);
 			i++;
 		}
 		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			STRING = va_arg(args, char*);
-			if (STRING == NULL)
-				return (-1);
 			PUTS(STRING);
 			i++;
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
-			PUTCHAR('%');
+			PUTCHAR(format[i]);
 			i++;
 		}
 		else
