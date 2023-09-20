@@ -13,7 +13,7 @@ int PUTS(const char *x)
 	for (i = 0; x[i] != '\0'; i++)
 	{
 		write(1, &x[i], 1);
-		len++
+		len++;
 	}
 	return (len);
 }
